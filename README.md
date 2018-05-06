@@ -1,24 +1,8 @@
-# README
+# Ticket Tracker App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple app that manages tickets for projects
 
-Things you may want to cover:
+## Demo
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

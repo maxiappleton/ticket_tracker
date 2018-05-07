@@ -5,7 +5,7 @@
   <%= f.text_field :title %>
   <%= f.label :description %>
   <%= f.text_area :description, rows: 5 %>
-  <%= f.submit @project.attribute_present?(:id) ? 'Update Project' : 'Create Project' %>
+  <%= f.submit @project.new_record? ? 'Create Project' : 'Update Project' %>
 <% end %>
 
 <%= link_to 'Back', projects_path %>

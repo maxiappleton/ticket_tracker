@@ -1,0 +1,17 @@
+<h1>All Tickets</h1>
+
+<div>Show tickets from   with status   tagged    Clear Filters</div>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Assignee</th>
+    <th>Status</th>
+    <th>Tags</th>
+    <th></th>
+  </tr>
+  <%= render @tickets %>
+</table>
+
+<%= link_to 'New Ticket', new_ticket_path %>
+

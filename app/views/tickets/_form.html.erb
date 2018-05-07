@@ -1,0 +1,25 @@
+<%= render 'shared/form_error_alerts', obj: @ticket %>
+
+<%= form_for @ticket do |f| %>
+  <%= f.label :project_id %>
+  <%= f.collection_select :project_id, Project.all, :id, :title %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :body %>
+  <%= f.text_area :body, rows: 5 %>
+
+  <%= f.label :status %>
+  <%= f.select :status, Ticket::STATUS_OPTIONS.map { |opt| [opt, opt] } %>
+
+  <%#= f.label :assignee_id %>
+  <%#= f.collection_select :assignee_id, User.all, :id, :name %>
+
+  <%#= f.label :tags %>
+  <%#= f.collection_select :tags, Tag.all, :id, :name  {multiple: true} %>
+
+  <%= f.submit %>
+<% end %>
+
+<%= link_to 'Back', tickets_path %>

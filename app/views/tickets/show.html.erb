@@ -1,0 +1,44 @@
+<%= link_to 'Back to all tickets', tickets_path %>
+
+<h2><%= @ticket.name %></h2>
+<p><%= @ticket.body %></p>
+<!-- 
+<p>
+  <strong>Tags:</strong>
+  <%# @ticket.tags.each do |tag| >
+    <span><%#= tag.title %></span>
+  <%# end %>
+</p>
+-->
+
+<%= link_to 'Edit', edit_ticket_path(@ticket) %>
+
+<table>
+  <tr>
+    <th>Project</th>
+    <th>Status</th>
+    <th>Creator</th>
+    <th>Assignee</th>
+  </tr>
+  <tr>
+    <td><%= @ticket.project.title %></td>
+    <td><%= @ticket.status %></td>
+    <td><%= 'Some Creator' %></td>
+    <td><%= 'Some Assignee' %></td>
+  </tr>
+</table>
+
+<h2>Comments</h2>
+
+<!-- Make this a rails form for a comment for this ticket: 
+<form>
+  <h4>Update Ticket Status</h4>
+  <select name="text">
+    <option value="value1">Value 1</option> 
+    <option value="value2" selected>Value 2</option>
+    <option value="value3">Value 3</option>
+  </select>
+</form>
+-->
+
+

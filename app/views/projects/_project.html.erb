@@ -1,11 +1,9 @@
 <tr>
   <td>
-    <%= link_to project.title, project_path(project) %>
+    <p><%= link_to project.title, project_path(project) %></p>
+    <p><%= project.description %></p>
   </td>
   <td>
-    <p><%= 1 %></p>
-  </td>
-  <td>
-    <p><%= 2 %></p>
+    <p><%= project.tickets.count %></p>
   </td>
 </tr>

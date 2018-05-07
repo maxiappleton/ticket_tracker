@@ -5,6 +5,6 @@
 <%= link_to 'Delete', project_path(@project), method: 'delete', data: { confirm: 'Are you sure?' } %>
 
 <h2>Tickets</h1>
- <!-- Show associated tickets -->
+<%= render 'tickets/tickets_table', tickets: @project.tickets %>
 
  <%= link_to 'Back', root_path %>

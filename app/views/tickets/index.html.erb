@@ -2,16 +2,7 @@
 
 <div>Show tickets from   with status   tagged    Clear Filters</div>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Assignee</th>
-    <th>Status</th>
-    <th>Tags</th>
-    <th></th>
-  </tr>
-  <%= render @tickets %>
-</table>
+<%= render 'tickets_table', tickets: @tickets %>
 
 <%= link_to 'New Ticket', new_ticket_path %>
 

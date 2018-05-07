@@ -1,0 +1,4 @@
+<% flash.each do |type, msg| %>
+  <!-- flash-notice for success or flash-alert for failure -->  
+  <div class="flash flash-<%= type %>"><%= msg %></div>
+<% end %>

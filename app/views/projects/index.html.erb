@@ -1,0 +1,12 @@
+<p>All Projects</p>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Open Tickets</th>
+    <th>Total Tickets</th>
+  </tr>
+  <%= render @projects %>
+</table>
+
+<%= link_to 'New Project', new_project_path %>

@@ -2,7 +2,7 @@
   <td><%= link_to ticket.name, ticket_path(ticket) %></td>
   <td><%= 'Logged In User' %></td>
   <td><%= ticket.status %></td>
-  <td><%= 'Tags' %></td>
+  <td><%= ticket.tags.any? ? ticket.tags.map(&:name).join(', ') : '-' %></td>
   <td>
     <%= link_to 'Edit', edit_ticket_path(ticket) %>
     <%= link_to 'Destroy', ticket_path(ticket), method: 'delete', data: { confirm: 'Are you sure?' } %>

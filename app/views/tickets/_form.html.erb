@@ -16,8 +16,8 @@
   <%#= f.label :assignee_id %>
   <%#= f.collection_select :assignee_id, User.all, :id, :name %>
 
-  <%#= f.label :tags %>
-  <%#= f.collection_select :tags, Tag.all, :id, :name  {multiple: true} %>
+  <%= f.label :tag_ids %>
+  <%= f.collection_select :tag_ids, Tag.all, :id, :name, {}, { multiple: true } %>
 
   <%= f.submit %>
 <% end %>

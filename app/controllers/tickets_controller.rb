@@ -3,7 +3,11 @@ class TicketsController < ApplicationController
 
 
   def index
-    @tickets = Ticket.all
+    if params[:tag].present?
+      @tickets = Tag.find(params[:tag]).tickets
+    else
+      @tickets = Ticket.all
+    end
   end
 
   def show
@@ -14,7 +18,7 @@ class TicketsController < ApplicationController
   end
 
   def create
-    @ticket = Ticket.new(tickets_params)
+    @ticket = Ticket.new(ticket_params)
 
     if @ticket.save
       flash[:notice] = "Your ticket has been created!"
@@ -29,7 +33,7 @@ class TicketsController < ApplicationController
   end
 
   def update
-    if @ticket.update(tickets_params)
+    if @ticket.update(ticket_params)
       flash[:notice] = "Your ticket has been updated!"
       redirect_to ticket_path(@ticket)
     else
@@ -45,8 +49,8 @@ class TicketsController < ApplicationController
 
   private
 
-  def tickets_params
-    params.require(:ticket).permit(:project_id, :name, :body, :status)
+  def ticket_params
+    params.require(:ticket).permit(:project_id, :name, :body, :status, :tag_ids => [])
   end
 
   def set_ticket

@@ -1,15 +1,10 @@
-<%= link_to 'Back to all tickets', tickets_path %>
-
 <h2><%= @ticket.name %></h2>
 <p><%= @ticket.body %></p>
-<!-- 
 <p>
   <strong>Tags:</strong>
-  <%# @ticket.tags.each do |tag| >
-    <span><%#= tag.title %></span>
-  <%# end %>
+  <%= @ticket.tags.any? ? @ticket.tags.map(&:name).join(', ') : 'None' %>
 </p>
--->
+
 
 <%= link_to 'Edit', edit_ticket_path(@ticket) %>
 
@@ -27,6 +22,8 @@
     <td><%= 'Some Assignee' %></td>
   </tr>
 </table>
+
+<%= link_to 'Back to all tickets', tickets_path %>
 
 <h2>Comments</h2>
 

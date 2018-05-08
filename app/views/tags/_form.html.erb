@@ -1,0 +1,6 @@
+<%= render 'shared/form_error_alerts', obj: @tag %>
+
+<%= form_for @tag do |f| %>
+  <%= f.text_field :name %>
+  <%= f.submit @tag.new_record? ? 'Create Tag' : 'Update Tag' %>
+<% end %>

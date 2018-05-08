@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   resources :projects
   resources :tickets
   resources :tags, except: [:show]
+
+  get '/signup', to: 'users#new'
+  post '/signup', to: 'users#create'
 end

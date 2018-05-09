@@ -1,8 +1,18 @@
 <h1>All Tickets</h1>
 
-<div>Show tickets from   with status   tagged    Clear Filters</div>
+<%= form_tag tickets_path, method: 'get', enforce_utf8: false %>
+  <%= label_tag 'project', 'Show tickets from' %>
+  <%= select_tag 'project', options_from_collection_for_select(Project.all, 'id', 'title', params[:project]), { include_blank: 'All Projects' } %>
+
+  <%= label_tag 'status', 'with status' %>
+  <%= select_tag 'status', options_for_select(Ticket::STATUS_OPTIONS, params[:status]), { include_blank: 'Any Status' } %>
+
+  <%= label_tag 'tag', 'tagged' %>
+  <%= select_tag 'tag', options_from_collection_for_select(Tag.all, 'id', 'name', params[:tag]), { include_blank: '-' } %>
+
+  <%= submit_tag 'Update', name: nil %>
+  <%= link_to 'Clear Filters', tickets_path %>
 
 <%= render 'tickets_table', tickets: @tickets %>
 
 <%= link_to 'New Ticket', new_ticket_path %>
-

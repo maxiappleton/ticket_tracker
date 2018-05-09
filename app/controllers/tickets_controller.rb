@@ -3,11 +3,9 @@ class TicketsController < ApplicationController
   before_action :require_user, except: [:index, :show]
 
   def index
-    if params[:tag].present?
-      @tickets = Tag.find(params[:tag]).tickets
-    else
-      @tickets = Ticket.all
-    end
+    @tickets = params[:project].present? ? Ticket.where(project_id: params[:project]) : Ticket.all
+    @tickets = @tickets.where(status: params[:status]) if params[:status].present?
+    @tickets = @tickets.joins(:tags).where("tags.id": params[:tag]) if params[:tag].present?
   end
 
   def show

@@ -1,6 +1,6 @@
 class TicketsController < ApplicationController
   before_action :set_ticket, only: [:show, :edit, :update, :destroy]
-
+  before_action :require_user, except: [:index, :show]
 
   def index
     if params[:tag].present?

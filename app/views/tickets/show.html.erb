@@ -26,15 +26,13 @@
 
 <h2>Comments</h2>
 
-<!-- Make this a rails form for a comment for this ticket: 
-<form>
-  <h4>Update Ticket Status</h4>
-  <select name="text">
-    <option value="value1">Value 1</option> 
-    <option value="value2" selected>Value 2</option>
-    <option value="value3">Value 3</option>
-  </select>
-</form>
--->
+<% @ticket.comments.each do |c| %>
+  <%= render 'comments/comment', comment: c %>
+<% end %>
+
+<br />
+<hr />
+
+<%= render 'comments/form', comment: Comment.new %>
 
 

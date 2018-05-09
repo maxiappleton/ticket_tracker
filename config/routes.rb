@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   root to: 'projects#index'
   
   resources :projects
-  resources :tickets
+  resources :tickets do
+    resources :comments, except: [:index, :show, :new]
+  end
   resources :tags, except: [:show]
 
   get '/signup', to: 'users#new'

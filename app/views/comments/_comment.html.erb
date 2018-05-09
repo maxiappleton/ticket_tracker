@@ -1,0 +1,11 @@
+<div>
+  <p><%= comment.body %></p>
+  <em>posted by <strong><%= comment.creator.name %></strong> BLANK days ago</em>
+  
+  <% if current_user == comment.creator %>
+    <p>
+      <%= link_to 'Edit', edit_ticket_comment_path(@ticket, comment) %>
+      <%= link_to 'Delete', ticket_comment_path(@ticket, comment), method: 'delete', data: { confirm: 'Are you sure?' } %>
+    </p>
+  <% end %>
+</div>

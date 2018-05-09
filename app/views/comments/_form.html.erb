@@ -1,0 +1,10 @@
+<%= form_for [@ticket, comment] do |f| %>
+  <%= f.label :body, 'Comment Text' %>
+  <%= f.text_area :body, rows: 5 %>
+
+  <%= label_tag 'ticket_status', 'Update ticket status' %>
+  <%= select_tag 'ticket_status', options_for_select(Ticket::STATUS_OPTIONS), { include_blank: 'Do not change' } %>
+
+  <%= f.submit comment.new_record? ? 'Create Comment' : 'Update Comment' %>
+  <%= link_to 'Cancel', ticket_path(@ticket) %>
+<% end %>

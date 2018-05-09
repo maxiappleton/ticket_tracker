@@ -13,6 +13,11 @@
   <%= submit_tag 'Update', name: nil %>
   <%= link_to 'Clear Filters', tickets_path %>
 
-<%= render 'tickets_table', tickets: @tickets %>
+
+<% if @tickets.empty? %>
+  <p>Sorry, there are no tickets that match that search query!</p>
+<% else %>
+  <%= render 'tickets_table', tickets: @tickets %>
+<% end %>
 
 <%= link_to 'New Ticket', new_ticket_path %>

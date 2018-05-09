@@ -1,12 +1,16 @@
 <h1>Tags</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Tickets</th>
-    <th></th>
-  </tr>
-  <%= render @tags %>
-</table>
+<% if @tags.empty? %>
+  <p>There are currently no tags! Click below to create one!</p>
+<% else %>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Tickets</th>
+      <th></th>
+    </tr>
+    <%= render @tags %>
+  </table>
+<% end %>
 
 <%= link_to 'New Tag', new_tag_path %>

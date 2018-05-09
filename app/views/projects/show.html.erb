@@ -5,6 +5,14 @@
 <%= link_to 'Delete', project_path(@project), method: 'delete', data: { confirm: 'Are you sure?' } %>
 
 <h2>Tickets</h1>
-<%= render 'tickets/tickets_table', tickets: @project.tickets %>
+
+<% if @project_tickets.empty? %>
+  <p>This project currently has no tickets!</p>
+<% else %>
+  <%= render 'tickets/tickets_table', tickets: @project_tickets %>
+<% end %>
+
+<br />
+<hr />
 
  <%= link_to 'Back', root_path %>

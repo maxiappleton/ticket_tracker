@@ -5,7 +5,6 @@
   <%= @ticket.tags.any? ? @ticket.tags.map(&:name).join(', ') : 'None' %>
 </p>
 
-
 <%= link_to 'Edit', edit_ticket_path(@ticket) %>
 
 <table>
@@ -19,7 +18,7 @@
     <td><%= @ticket.project.title %></td>
     <td><%= @ticket.status %></td>
     <td><%= @ticket.creator.name %></td>
-    <td><%= 'Some Assignee' %></td>
+    <td><%= @ticket.assignee.present? ? @ticket.assignee.name : '-' %></td>
   </tr>
 </table>
 

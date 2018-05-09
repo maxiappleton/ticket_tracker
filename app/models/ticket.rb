@@ -8,4 +8,5 @@ class Ticket < ActiveRecord::Base
   has_many :ticket_tags
   has_many :tags, through: :ticket_tags
   belongs_to :creator, class_name: 'User', foreign_key: 'creator_id'
+  belongs_to :assignee, class_name: 'User', foreign_key: 'assignee_id', optional: true
 end

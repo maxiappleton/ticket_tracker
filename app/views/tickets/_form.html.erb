@@ -13,8 +13,8 @@
   <%= f.label :status %>
   <%= f.select :status, Ticket::STATUS_OPTIONS.map { |opt| [opt, opt] } %>
 
-  <%#= f.label :assignee_id %>
-  <%#= f.collection_select :assignee_id, User.all, :id, :name %>
+  <%= f.label :assignee_id %>
+  <%= f.collection_select :assignee_id, User.all, :id, :name, { prompt: true } %>
 
   <%= f.label :tag_ids %>
   <%= f.collection_select :tag_ids, Tag.all, :id, :name, {}, { multiple: true } %>

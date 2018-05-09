@@ -51,7 +51,7 @@ class TicketsController < ApplicationController
   private
 
   def ticket_params
-    params.require(:ticket).permit(:project_id, :name, :body, :status, :tag_ids => [])
+    params.require(:ticket).permit(:project_id, :name, :body, :status, :assignee_id, :tag_ids => [])
   end
 
   def set_ticket
